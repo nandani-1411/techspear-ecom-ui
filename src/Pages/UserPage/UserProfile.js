@@ -62,9 +62,10 @@ export default function ProfilePage() {
     formData.append("profilePic", file);
 
     try {
+      let token=localStorage.getItem("token")
       const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/users/updateProfilePic`, formData, {
         withCredentials: true,
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { "Content-Type": "multipart/form-data" ,Authorization:`Bearer ${token}`},
       });
 
       setUser(response.data.data);
@@ -81,7 +82,12 @@ export default function ProfilePage() {
   const handleSave = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/users/updateDetails`, formData, { withCredentials: true });
+      let token= localStorage.getItem("token");
+      const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/users/updateDetails`, formData, { withCredentials: true,
+        headers:{
+          Authorization:`Bearer ${token}`
+        }
+       });
 
       setUser(response.data.data);
       setEditMode(false);
