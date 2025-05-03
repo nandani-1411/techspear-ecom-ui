@@ -8,7 +8,9 @@ export const getMyDashboard = createAsyncThunk("banner/get", async (_, { rejectW
     try {
         const response = await axios.get(`${baseUrl}/getDashboard`, {
             withCredentials: true,
-            headers:`Bearer ${token}`
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
         });
         return response.data;
     } catch (error) {
