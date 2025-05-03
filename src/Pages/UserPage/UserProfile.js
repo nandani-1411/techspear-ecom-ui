@@ -56,7 +56,7 @@ export default function ProfilePage() {
     formData.append("profilePic", file);
 
     try {
-      const response = await axios.patch("http://localhost:5000/api/v1/users/updateProfilePic", formData, {
+      const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/users/updateProfilePic`, formData, {
         withCredentials: true,
         headers: { "Content-Type": "multipart/form-data" },
       });
