@@ -5,8 +5,7 @@
 ---
 
 ## 🔥 Live Demo
-[Visit the live site](https://your-vercel-link.vercel.app) <!-- Replace with your actual deployed link -->
-
+[Visit the live site](https://techspear-ecom.vercel.app)
 ---
 
 ## ✨ Features
