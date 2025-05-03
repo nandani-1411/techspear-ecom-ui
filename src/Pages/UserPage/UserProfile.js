@@ -21,7 +21,7 @@ export default function ProfilePage() {
   const fetchUserProfile = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get("http://localhost:5000/api/v1/users/getCurrentUser", { withCredentials: true });
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/users/getCurrentUser`, { withCredentials: true });
       setUser(response.data.data.user);
       setFormData(response.data.data.user);
     } catch (error) {
@@ -75,7 +75,7 @@ export default function ProfilePage() {
   const handleSave = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.patch("http://localhost:5000/api/v1/users/updateDetails", formData, { withCredentials: true });
+      const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/users/updateDetails`, formData, { withCredentials: true });
 
       setUser(response.data.data);
       setEditMode(false);
