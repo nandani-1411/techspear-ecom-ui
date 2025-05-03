@@ -94,8 +94,7 @@ const CategoryProduct = () => {
         ${isDarkMode ? "bg-gray-800 border-gray-600 text-white" : "bg-white border-gray-300 text-gray-800"}
         ${showFilters ? "translate-x-0 top-[60px]" : "-translate-x-full"}
         lg:translate-x-0 lg:static lg:w-full lg:pt-0
-        lg:sticky lg:top-[80px] lg:h-[calc(100vh-80px)] lg:overflow-y-auto
-    `}
+        lg:sticky lg:top-[80px] lg:h-[calc(100vh-80px)] lg:overflow-y-auto`}
                 >
 
                     {showFilters && (
