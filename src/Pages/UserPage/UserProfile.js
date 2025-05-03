@@ -21,7 +21,13 @@ export default function ProfilePage() {
   const fetchUserProfile = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/users/getCurrentUser`, { withCredentials: true });
+      let token= localStorage.getItem("token");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/users/getCurrentUser`, { 
+        withCredentials: true, 
+        headers:{
+          Authorization:`Bearer ${token}`
+        }
+    });
       setUser(response.data.data.user);
       setFormData(response.data.data.user);
     } catch (error) {
