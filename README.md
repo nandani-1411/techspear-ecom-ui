@@ -5,7 +5,7 @@
 ---
 
 ## 🔥 Live Demo
-[Visit the live site](https://techspear-ecom.vercel.app)
+<a href="https://techspear-ecom.vercel.app" target="_blank">Visit the live site</a>
 ---
 
 ## ✨ Features
