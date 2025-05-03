@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-const baseUrl = "http://localhost:5000/api/v1/products"
+const baseUrl = `${process.env.REACT_APP_API_URL}/api/v1/products`
 
 
 export const uploadProduct = createAsyncThunk("product/upload", async (formData, { rejectWithValue }) => {

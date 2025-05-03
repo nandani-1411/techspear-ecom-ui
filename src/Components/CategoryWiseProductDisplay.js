@@ -19,7 +19,7 @@ const CategroyWiseProductDisplay = ({ category, heading }) => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/v1/products/getCategoryBasedProduct?category=${category}`
+          `${process.env.REACT_APP_API_URL}/api/v1/products/getCategoryBasedProduct?category=${category}`
         );
         console.log("API Response categorywiseProd:", response.data.data);
         setData(response.data.data);

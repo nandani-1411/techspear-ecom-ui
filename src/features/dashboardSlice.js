@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const baseUrl = "http://localhost:5000/api/v1/dashboard"
+const baseUrl = `${process.env.REACT_APP_API_URL}/api/v1/dashboard`
 
 export const getMyDashboard = createAsyncThunk("banner/get", async (_, { rejectWithValue }) => {
     let token= localStorage.getItem("token")

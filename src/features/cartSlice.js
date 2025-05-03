@@ -7,7 +7,7 @@ export const addToCartProduct = createAsyncThunk(
         try {
             const token=localStorage.getItem("token")
             const response = await axios.post(
-                `http://localhost:5000/api/v1/cart/addToCart`,
+              `${process.env.REACT_APP_API_URL}/api/v1/cart/addToCart`,
                 { userId, productId, quantity },
                 {
                     withCredentials: true,
@@ -35,7 +35,7 @@ export const addToCartProduct = createAsyncThunk(
 export const getCart = createAsyncThunk("cart/getCart",async (userId,{rejectWithValue})=>{
     try{
         const token=localStorage.getItem("token")
-        const response = await axios.get(`http://localhost:5000/api/v1/cart/getCartItems/${userId}`,{withCredentials:true,headers:{
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/cart/getCartItems/${userId}`,{withCredentials:true,headers:{
             "Content-Type":"application/json",
              "Authorization": `Bearer ${token}`
         }})
@@ -51,7 +51,7 @@ export const clearCart = createAsyncThunk("cart/clearCart",async ({userId},{reje
         const token=localStorage.getItem("token")
         console.log(userId)
         ///clearCart
-        const response = await axios.patch(`http://localhost:5000/api/v1/cart/clearCart/${userId}`,{},
+        const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/cart/clearCart/${userId}`,{},
             {withCredentials:true,headers:{
             "Content-Type":"application/json",
              "Authorization": `Bearer ${token}`
@@ -67,7 +67,7 @@ export const clearCart = createAsyncThunk("cart/clearCart",async ({userId},{reje
 export const updateCartQuntity = createAsyncThunk("cart/updateCartQuntity",async ({userId,productId,quantity},{rejectWithValue})=>{
     try{
         const token= localStorage.getItem("token")
-        const response = await axios.patch(`http://localhost:5000/api/v1/cart/updateQuntity`,{userId,productId,quantity},{withCredentials:true,headers:{
+        const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/cart/updateQuntity`,{userId,productId,quantity},{withCredentials:true,headers:{
             "Content-Type":"application/json",
              "Authorization": `Bearer ${token}`
         }})
@@ -83,7 +83,7 @@ export const updateCartQuntity = createAsyncThunk("cart/updateCartQuntity",async
 export const delteCartItem = createAsyncThunk("cart/delteCartItem",async ({userId,productId})=>{
     try{
         const token= localStorage.getItem("token")
-        const response = await axios.delete(`http://localhost:5000/api/v1/cart//deleteCartItem/${userId}/${productId}`,{withCredentials:true,headers:{
+        const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/cart/deleteCartItem/${userId}/${productId}`,{withCredentials:true,headers:{
             "Content-Type":"application/json",
              "Authorization": `Bearer ${token}`
         }})

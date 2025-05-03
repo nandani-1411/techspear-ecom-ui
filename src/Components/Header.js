@@ -51,7 +51,7 @@ const Header = () => {
   const fetchSearchProduct = async () => {
     try {
       console.log("MY Search Quearry", searchQuery)
-      const response = await axios.get(`http://localhost:5000/api/v1/products/searchProduct?q=${searchQuery}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/products/searchProduct?q=${searchQuery}`);
       console.log(response?.data)
       console.log(response?.data?.message)
       // toast.success(response?.data?.message)

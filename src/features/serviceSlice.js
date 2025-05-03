@@ -1,7 +1,7 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const baseUrl= "http://localhost:5000/api/v1/service";
+const baseUrl= `${process.env.REACT_APP_API_URL}/api/v1/service`;
 
 export const createServiceCategory = createAsyncThunk("service/createCtegory",async({name,subCategories},{rejectWithValue})=>{
 

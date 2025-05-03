@@ -19,7 +19,7 @@ const AllUsers = () => {
     try {
       setLoading(true);
       const token= localStorage.getItem("token")
-      const response = await fetch("http://localhost:5000/api/v1/users/getAllUser", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/getAllUser`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const AllUsers = () => {
     if (userToDelete) {
       const token = localStorage.getItem("token");
       try {
-        const response = await fetch(`http://localhost:5000/api/v1/users/deleteUser/${userToDelete}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/deleteUser/${userToDelete}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

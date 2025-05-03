@@ -22,7 +22,7 @@ const ContactUs = () => {
     e.preventDefault();
   
     try {
-      const res = await axios.post("http://localhost:5000/contactus",formData,{
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/contactus`,formData,{
         headers:{
           "Content-Type":"application/json"
         }

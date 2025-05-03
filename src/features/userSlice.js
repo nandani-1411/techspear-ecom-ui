@@ -3,7 +3,7 @@ import axios from "axios"
 import { persistor } from "../redux/store.js";
 
 
-const baseURL = "http://localhost:5000/api/v1/users"
+const baseURL = `${process.env.REACT_APP_API_URL}/api/v1/users`
 
 export const registerUser = createAsyncThunk(
   "user/register",
@@ -101,7 +101,7 @@ export const sendOtp = createAsyncThunk("user/sendOtp", async ({ email }, { reje
 
   try {
   console.log(email)
-    const response = await axios.post(`http://localhost:5000/api/v1/forgetPass/sendOtp`, {email}, {
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/forgetPass/sendOtp`, {email}, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json"
@@ -120,7 +120,7 @@ export const verifyOtp = createAsyncThunk("user/verifyOtp", async ({ email ,otp}
 
   try {
     console.log(email,otp)
-    const response = await axios.post(`http://localhost:5000/api/v1/forgetPass/verifyOtp`, {email,otp}, {
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/forgetPass/verifyOtp`, {email,otp}, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json"
@@ -137,7 +137,7 @@ export const verifyOtp = createAsyncThunk("user/verifyOtp", async ({ email ,otp}
 export const resetPass = createAsyncThunk("user/resetPass", async ({ email,newPassword }, { rejectWithValue }) => {
 
   try {
-    const response = await axios.post(`http://localhost:5000/api/v1/forgetPass/resetPass`, {email,newPassword}, {
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/forgetPass/resetPass`, {email,newPassword}, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json"

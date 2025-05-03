@@ -18,7 +18,7 @@ const HorizontalCardProduct = ({ category, heading, products =[], loading }) => 
        
           try {
             const response = await axios.get(
-              `http://localhost:5000/api/v1/products/getCategoryBasedProduct?category=${category}`
+              `${process.env.REACT_APP_API_URL}/api/v1/products/getCategoryBasedProduct?category=${category}`
             );
     
             console.log("API Response categorywiseProd:", response.data);
